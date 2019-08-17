@@ -27,9 +27,9 @@ class Template(models.Model):
 class Email(models.Model):
     mailbox = models.ForeignKey(Mailbox, on_delete=models.CASCADE, related_name='emails')
     template = models.ForeignKey(Template, on_delete=models.CASCADE, related_name='templates')
-    to = ArrayField(models.CharField(max_length=200), default=list)
-    cc = ArrayField(models.CharField(max_length=200), default=list, blank=True)
-    bcc = ArrayField(models.CharField(max_length=200), default=list, blank=True)
-    reply_to = models.EmailField(default=None)
+    to = ArrayField(models.EmailField(), default=list)
+    cc = ArrayField(models.EmailField(), default=list, blank=True)
+    bcc = ArrayField(models.EmailField(), default=list, blank=True)
+    reply_to = models.EmailField(default=None, blank=True)
     sent_date = models.DateTimeField(default=None, blank=True)
     date = models.DateTimeField(auto_now_add=True)
