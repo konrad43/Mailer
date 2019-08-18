@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from .models import Mailbox, Template, Email
 from .serializers import MailboxSerializer, TemplateSerializer, EmailSerializer
 from .tasks import send_email_task
+from .filters import EmailFilter
 
 
 class MailboxViewSet(viewsets.ModelViewSet):
@@ -22,6 +23,7 @@ class TemplateViewSet(viewsets.ModelViewSet):
 class EmailViewSet(viewsets.ModelViewSet):
     queryset = Email.objects.all()
     serializer_class = EmailSerializer
+    filterset_class = EmailFilter
 
     def create(self, request, *args, **kwargs):
         mailbox = Mailbox.objects.get(id=request.data['mailbox'])

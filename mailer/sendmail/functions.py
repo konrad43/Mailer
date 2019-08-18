@@ -8,7 +8,7 @@ import os, logging, smtplib, datetime
 from .models import Mailbox, Email
 
 
-logging.basicConfig(level=logging.INFO, format=FORMAT, filename='logs/email.log')
+logging.basicConfig(level=logging.INFO, filename='logs/email.log')
 # logging.basicConfig(level=logging.DEBUG)
 
 def create_email(email):
