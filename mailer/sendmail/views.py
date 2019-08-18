@@ -1,13 +1,12 @@
 import logging
-import datetime
 
 from rest_framework import viewsets
 from rest_framework.response import Response
+from django.http import HttpResponse
 
 from .models import Mailbox, Template, Email
 from .serializers import MailboxSerializer, TemplateSerializer, EmailSerializer
 from .tasks import send_email_task
-from .functions import create_email
 
 
 class MailboxViewSet(viewsets.ModelViewSet):
@@ -37,26 +36,27 @@ class EmailViewSet(viewsets.ModelViewSet):
             cc=cc,
             bcc=bcc,
             reply_to=request.data.get('reply_to', None),
-            sent_date=datetime.datetime.now()
+            # sent_date=datetime.datetime.now()
         )
-
         serializer = EmailSerializer(email, many=False)
-        logging.info('email added to db')
+        logging.debug('email added to db')
 
-        to_addr = '; '.join(email.to)
-        copy = '; '.join(email.cc)
-        b_copy = '; '.join(email.bcc)
-
-        email_to_send = create_email(
+        email_to_send = dict(
+            id=email.id,
             from_addr=mailbox.email_from + f' <{mailbox.login}>',
-            to_addr=to_addr,
-            cc = copy,
-            bcc=b_copy,
+            to_addr='; '.join(email.to),
+            cc = '; '.join(email.cc),
+            bcc='; '.join(email.bcc),
             subject=template.subject,
             body=template.text,
-            attachment=template.attachment
+            attachment=template.attachment.name
         )
+        if mailbox.is_active:
+            print('Sending email')
+            # send_email_task.delay(email_to_send, mailbox.id)
+            send_email_task(email_to_send, mailbox.id)
+        else:
+            return HttpResponse('Your mailbox is not active')
 
-        print(email_to_send)
-        # send_email_task()
         return Response(serializer.data)
+

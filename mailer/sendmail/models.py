@@ -31,5 +31,5 @@ class Email(models.Model):
     cc = ArrayField(models.EmailField(), default=list, blank=True)
     bcc = ArrayField(models.EmailField(), default=list, blank=True)
     reply_to = models.EmailField(default=None, blank=True)
-    sent_date = models.DateTimeField(default=None, blank=True)
+    sent_date = models.DateTimeField(default=None, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
