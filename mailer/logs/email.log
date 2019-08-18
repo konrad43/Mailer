@@ -1,0 +1,492 @@
+%(message)s
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.IntegrityError: BŁĄD:  pusta wartość w kolumnie "sent_date" narusza ograniczenie wymaganej wartości
+DETAIL:  Niepoprawne ograniczenia wiersza (30, {tigudocul@ionemail.net}, {}, {}, ja@ja.pl, null, 2019-08-18 10:40:24.260023+00, 1, 2).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py", line 39, in create
+    reply_to=request.data.get('reply_to', None),
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/query.py", line 422, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1335, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: BŁĄD:  pusta wartość w kolumnie "sent_date" narusza ograniczenie wymaganej wartości
+DETAIL:  Niepoprawne ograniczenia wiersza (30, {tigudocul@ionemail.net}, {}, {}, ja@ja.pl, null, 2019-08-18 10:40:24.260023+00, 1, 2).
+
+%(message)s
+%(message)s
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/objects.py", line 42, in __get__
+    return obj.__dict__[self.__name__]
+KeyError: 'backend'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py", line 58, in create
+    send_email_task.delay(email_to_send, mailbox)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 570, in apply_async
+    **options
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/base.py", line 755, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/objects.py", line 44, in __get__
+    value = obj.__dict__[self.__name__] = self.__get(obj)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/base.py", line 1207, in backend
+    return self._get_backend()
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/base.py", line 925, in _get_backend
+    self.loader)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/backends.py", line 74, in by_url
+    return by_name(backend, loader), url
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/backends.py", line 54, in by_name
+    cls = symbol_by_name(backend, aliases)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/imports.py", line 57, in symbol_by_name
+    module = imp(module_name, package=package, **kwargs)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/backends/database/__init__.py", line 17, in <module>
+    from .models import Task
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/backends/database/models.py", line 7, in <module>
+    import sqlalchemy as sa
+ModuleNotFoundError: No module named 'sqlalchemy'
+%(message)s
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'MIMEMultipart' is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py", line 58, in create
+    send_email_task.delay(email_to_send, mailbox)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 570, in apply_async
+    **options
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/base.py", line 756, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/amqp.py", line 552, in send_task_message
+    **properties
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/messaging.py", line 169, in publish
+    compression, headers)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/messaging.py", line 252, in _prepare
+    body) = dumps(body, serializer=serializer)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/lib/python3.6/contextlib.py", line 99, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+kombu.exceptions.EncodeError: Object of type 'MIMEMultipart' is not JSON serializable
+%(message)s
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'bytes' is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py", line 58, in create
+    send_email_task.delay(email_to_send.as_bytes(), mailbox)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 570, in apply_async
+    **options
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/base.py", line 756, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/amqp.py", line 552, in send_task_message
+    **properties
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/messaging.py", line 169, in publish
+    compression, headers)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/messaging.py", line 252, in _prepare
+    body) = dumps(body, serializer=serializer)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/lib/python3.6/contextlib.py", line 99, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+kombu.exceptions.EncodeError: Object of type 'bytes' is not JSON serializable
+%(message)s
+%(message)s
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Mailbox' is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py", line 58, in create
+    send_email_task.delay(email_to_send.as_string(), mailbox)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/task.py", line 570, in apply_async
+    **options
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/base.py", line 756, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/celery/app/amqp.py", line 552, in send_task_message
+    **properties
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/messaging.py", line 169, in publish
+    compression, headers)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/messaging.py", line 252, in _prepare
+    body) = dumps(body, serializer=serializer)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/usr/lib/python3.6/contextlib.py", line 99, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 54, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/vine/five.py", line 194, in reraise
+    raise value.with_traceback(tb)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 50, in _reraise_errors
+    yield
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/serialization.py", line 221, in dumps
+    payload = encoder(data)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 70, in dumps
+    **dict(default_kwargs, **kwargs))
+  File "/usr/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/kombu/utils/json.py", line 59, in default
+    return super(JSONEncoder, self).default(o)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+kombu.exceptions.EncodeError: Object of type 'Mailbox' is not JSON serializable
+%(message)s
+%(message)s
+%(message)s
+%(message)s
+%(message)s
+WARNING:django.request:Bad Request: /api/email/
+WARNING:django.request:Bad Request: /api/email/
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/mailer/settings.py changed, reloading.
+WARNING:django.request:Bad Request: /api/email/
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/email/
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/rest_framework/backends.py", line 90, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/rest_framework/backends.py", line 31, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/rest_framework/backends.py", line 73, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 71, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 326, in get_filters
+    fields = cls.get_fields()
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 291, in get_fields
+    fields = [(f, ['exact']) for f in fields if f not in exclude]
+TypeError: 'FilterSetMetaclass' object is not iterable
+ERROR:django.request:Internal Server Error: /api/email/
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/rest_framework/backends.py", line 90, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/rest_framework/backends.py", line 31, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/rest_framework/backends.py", line 73, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 71, in __new__
+    new_class.base_filters = new_class.get_filters()
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 326, in get_filters
+    fields = cls.get_fields()
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 291, in get_fields
+    fields = [(f, ['exact']) for f in fields if f not in exclude]
+TypeError: 'FilterSetMetaclass' object is not iterable
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/filters.py changed, reloading.
+ERROR:django.request:Internal Server Error: /api/email/
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/rest_framework/generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/rest_framework/backends.py", line 96, in filter_queryset
+    return filterset.qs
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 237, in qs
+    qs = self.filter_queryset(qs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filterset.py", line 224, in filter_queryset
+    queryset = self.filters[name].filter(queryset, value)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django_filters/filters.py", line 765, in __call__
+    return self.method(qs, self.f.field_name, value)
+TypeError: filter_sent() takes 2 positional arguments but 4 were given
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/filters.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/filters.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/filters.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/serializers.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/mailer/settings.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/mailer/settings.py changed, reloading.

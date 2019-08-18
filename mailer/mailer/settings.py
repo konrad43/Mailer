@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+import environ
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+environ.Env.read_env()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x)kov01j)i+n42#)7%!m2$7$k56knfzd(aqis48fx!eyfso_7z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -76,15 +83,10 @@ WSGI_APPLICATION = 'mailer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mailer',
-        'USER': 'konrad',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    'default': env.db()
 }
 
 
@@ -132,7 +134,6 @@ MEDIA_URL = '/media/'
 
 
 # Celery settings
-# CELERY_BROKER_URL = 'amqp://guest:guest@localhost//'
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'

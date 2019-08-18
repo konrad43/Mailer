@@ -38,7 +38,6 @@ class EmailViewSet(viewsets.ModelViewSet):
             cc=cc,
             bcc=bcc,
             reply_to=request.data.get('reply_to', None),
-            # sent_date=datetime.datetime.now()
         )
         serializer = EmailSerializer(email, many=False)
         logging.debug('email added to db')
@@ -55,7 +54,6 @@ class EmailViewSet(viewsets.ModelViewSet):
         )
         if mailbox.is_active:
             print('Sending email')
-            # send_email_task.delay(email_to_send, mailbox.id)
             send_email_task(email_to_send, mailbox.id)
         else:
             return HttpResponse('Your mailbox is not active')
