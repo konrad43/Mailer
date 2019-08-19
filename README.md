@@ -5,6 +5,12 @@ Install requirements.txt
 
 Install PostgreSQL and Redis
 
+Create .env file (in accordance with django-environ rules) in mailer/mailer folder with path to Postgres.
+Example:
+```
+DATABASE_URL=psql://urser:un-githubbedpassword@127.0.0.1:8458/database
+```
+
 ```
 python manage.py migrate
 ```
