@@ -19,6 +19,7 @@ def create_email(email):
         msg['To'] = email['to_addr']
         msg['Cc'] = email['cc']
         msg['Bcc'] = email['bcc']
+        msg['Reply-To'] = email['reply_to']
         msg['Subject'] = email['subject']
         msg.attach(MIMEText(email['body'], 'plain'))
         attachment = email['attachment']

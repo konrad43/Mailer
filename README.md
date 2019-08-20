@@ -36,10 +36,11 @@ api/email (POST, GET)
 
 fields 'to', 'cc', 'bcc' require JSON Array format
 
-Query params for api/email:
-not_sent=True - shows all unsent emails
+*Query params for api/email:*
 
-not_sent=False - shows all sent emails
+sent_date=True - shows all sent emails
+
+sent_date=False - shows all unsent emails
 
 date=YYYY-MM-DD - filters by date
 

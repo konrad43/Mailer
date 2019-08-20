@@ -4,9 +4,9 @@ from .models import Email
 
 
 class EmailFilter(django_filters.FilterSet):
-    not_sent = django_filters.BooleanFilter(
-        field_name='sent_date',
-        lookup_expr='isnull'
+    sent_date = django_filters.BooleanFilter(
+        lookup_expr='isnull',
+        exclude=True
     )
     date = django_filters.DateFilter(lookup_expr='date')
 
