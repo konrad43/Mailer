@@ -2,7 +2,6 @@ import logging
 
 from rest_framework import viewsets
 from rest_framework.response import Response
-from django.http import HttpResponse
 
 from .models import Mailbox, Template, Email
 from .serializers import MailboxSerializer, TemplateSerializer, EmailSerializer
@@ -14,10 +13,26 @@ class MailboxViewSet(viewsets.ModelViewSet):
     queryset = Mailbox.objects.all()
     serializer_class = MailboxSerializer
 
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        return Response(serializer.data)
+
 
 class TemplateViewSet(viewsets.ModelViewSet):
     queryset = Template.objects.all()
     serializer_class = TemplateSerializer
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        return Response(serializer.data)
 
 
 class EmailViewSet(viewsets.ModelViewSet):
@@ -56,7 +71,6 @@ class EmailViewSet(viewsets.ModelViewSet):
             print('Sending email')
             send_email_task.delay(email_to_send, mailbox.id)
         else:
-            return HttpResponse('Your mailbox is not active')
-
+            return Response('Your mailbox is not active')
         return Response(serializer.data)
 

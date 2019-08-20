@@ -24,7 +24,7 @@ class Template(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     subject = models.CharField(max_length=255)
     text = models.TextField()
-    attachment = models.FileField(upload_to='attachments/', blank=True)
+    attachment = models.FileField(upload_to='attachments/', blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True, blank=True)
     last_update = models.DateTimeField(auto_now=True, blank=True)
 
@@ -36,6 +36,6 @@ class Email(models.Model):
     to = ArrayField(models.EmailField(), default=list)
     cc = ArrayField(models.EmailField(), default=list, blank=True)
     bcc = ArrayField(models.EmailField(), default=list, blank=True)
-    reply_to = models.EmailField(default=None, blank=True)
+    reply_to = models.EmailField(default=None, blank=True, null=True)
     sent_date = models.DateTimeField(default=None, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
