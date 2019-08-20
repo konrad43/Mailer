@@ -5,8 +5,8 @@ from .models import Mailbox, Template, Email
 class MailboxSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mailbox
-        fields = ['host', 'email_from','login', 'use_ssl', 'is_active', 'sent',
-                  'last_update', 'date']
+        fields = ['id', 'host', 'login', 'password', 'email_from', 'use_ssl',
+                  'is_active', 'last_update', 'date', 'sent']
 
 
 class TemplateSerializer(serializers.ModelSerializer):

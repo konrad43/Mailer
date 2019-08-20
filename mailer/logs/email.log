@@ -490,3 +490,151 @@ INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendm
 INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/serializers.py changed, reloading.
 INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/mailer/settings.py changed, reloading.
 INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/mailer/settings.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/models.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/migrations/0001_initial.py changed, reloading.
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /admin/sendmail/template/add/
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: BŁĄD:  operator nie istnieje: integer = uuid
+LINE 1: ...0:00'::timestamptz WHERE "sendmail_template"."id" = 'a7a47b2...
+                                                             ^
+HINT:  Brak operatora pasującego do podanej nazwy i typu(ów) argumentów. Być może należy dodać jawne rzutowanie typów.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 606, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1634, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1561, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1088, in save_model
+    obj.save()
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 851, in _save_table
+    forced_update)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 900, in _do_update
+    return filtered._update(values) > 0
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/query.py", line 760, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1429, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1100, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: BŁĄD:  operator nie istnieje: integer = uuid
+LINE 1: ...0:00'::timestamptz WHERE "sendmail_template"."id" = 'a7a47b2...
+                                                             ^
+HINT:  Brak operatora pasującego do podanej nazwy i typu(ów) argumentów. Być może należy dodać jawne rzutowanie typów.
+
+WARNING:django.request:Not Found: /
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /admin/sendmail/template/add/
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: BŁĄD:  operator nie istnieje: integer = uuid
+LINE 1: ...0:00'::timestamptz WHERE "sendmail_template"."id" = '9a28b77...
+                                                             ^
+HINT:  Brak operatora pasującego do podanej nazwy i typu(ów) argumentów. Być może należy dodać jawne rzutowanie typów.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 606, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1634, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 45, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1522, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1561, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1088, in save_model
+    obj.save()
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 851, in _save_table
+    forced_update)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/base.py", line 900, in _do_update
+    return filtered._update(values) > 0
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/query.py", line 760, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1429, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1100, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/konrad/Python/Rekrutacje/Debesis/venv/lib/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: BŁĄD:  operator nie istnieje: integer = uuid
+LINE 1: ...0:00'::timestamptz WHERE "sendmail_template"."id" = '9a28b77...
+                                                             ^
+HINT:  Brak operatora pasującego do podanej nazwy i typu(ów) argumentów. Być może należy dodać jawne rzutowanie typów.
+
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/models.py changed, reloading.
+INFO:django.utils.autoreload:/home/konrad/Python/Rekrutacje/Debesis/mailer/sendmail/serializers.py changed, reloading.
