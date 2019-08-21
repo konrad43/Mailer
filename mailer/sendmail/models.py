@@ -17,7 +17,10 @@ class Mailbox(models.Model):
 
     @property
     def sent(self):
-        return Email.objects.exclude(sent_date__exact=None).count()
+        return (
+            Email.objects.filter(mailbox_id__exact=self.id)
+                .exclude(sent_date__exact=None).count()
+        )
 
 
 class Template(models.Model):

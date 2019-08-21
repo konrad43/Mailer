@@ -9,7 +9,6 @@ from .models import Mailbox, Email
 
 
 logging.basicConfig(level=logging.INFO, filename='logs/email.log')
-# logging.basicConfig(level=logging.DEBUG)
 
 def create_email(email):
     print('creating email')
