@@ -1,13 +1,24 @@
 import logging
 
 from django.core.exceptions import ObjectDoesNotExist
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins, generics
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework.reverse import reverse
 
 from .models import Mailbox, Template, Email
 from .serializers import MailboxSerializer, TemplateSerializer, EmailSerializer
 from .tasks import send_email_task
 from .filters import EmailFilter
+
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'mailbox': reverse('mailbox-list', request=request, format=format),
+        'template': reverse('template-list', request=request, format=format),
+        'email': reverse('email', request=request, format=format),
+    })
 
 
 class MailboxViewSet(viewsets.ModelViewSet):
@@ -37,43 +48,44 @@ class TemplateViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
 
-class EmailViewSet(viewsets.ModelViewSet):
+class EmailList(mixins.ListModelMixin,
+                mixins.CreateModelMixin,
+                generics.GenericAPIView):
     queryset = Email.objects.all()
     serializer_class = EmailSerializer
     filterset_class = EmailFilter
 
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
     def create(self, request, *args, **kwargs):
         try:
             mailbox = Mailbox.objects.get(id=request.data['mailbox'])
-            template = Template.objects.get(id=request.data['template'])
-            cc = request.data.get('cc', [])
-            bcc = request.data.get('bcc', [])
         except KeyError as e:
             return Response(f'This field is required: {e}',
                             status=status.HTTP_400_BAD_REQUEST)
         except ObjectDoesNotExist as e:
-            return Response(f'Chosen mailbox or template does not exist',
+            return Response(f'Chosen mailbox does not exist',
                             status=status.HTTP_400_BAD_REQUEST)
 
         if mailbox.is_active:
-            email = Email.objects.create(
-                mailbox=mailbox,
-                template=template,
-                to=request.data['to'],
-                cc=cc,
-                bcc=bcc,
-                reply_to=request.data.get('reply_to', None),
-            )
-            serializer = EmailSerializer(email, many=False)
+            serializer = EmailSerializer(data=request.data, many=False)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            email = serializer.data
             logging.debug('email added to db')
 
+            template = Template.objects.get(id=email['template'])
             email_to_send = dict(
-                id=email.id,
+                id=email['id'],
                 from_addr=mailbox.email_from + f' <{mailbox.login}>',
-                to_addr='; '.join(email.to),
-                cc = '; '.join(email.cc),
-                bcc='; '.join(email.bcc),
-                reply_to=email.reply_to,
+                to_addr='; '.join(email['to']),
+                cc = '; '.join(email['cc']),
+                bcc='; '.join(email['bcc']),
+                reply_to=email['reply_to'],
                 subject=template.subject,
                 body=template.text,
                 attachment=template.attachment.name,
@@ -84,12 +96,3 @@ class EmailViewSet(viewsets.ModelViewSet):
             return Response('Your mailbox is not active',
                             status=status.HTTP_403_FORBIDDEN)
         return Response(serializer.data)
-
-    def update(self, request, *args, **kwargs):
-        return Response('Method not allowed',
-                        status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
-    def destroy(self, request, *args, **kwargs):
-        return Response('Method not allowed',
-                        status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
